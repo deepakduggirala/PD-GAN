@@ -233,7 +233,7 @@ def test_mask_process(mask_path):
             raise ValueError(f"The {mask_path} has no image, plead check your folder")
         else:
             for _, img_path_each in enumerate(img_name_list):
-                mask_list.append(input_process(mask_path, image_size=256, mask=True))
+                mask_list.append(input_process(mask_path + '/' + img_path_each, image_size=256, mask=True))
     return mask_list
 
 
@@ -263,7 +263,7 @@ def test_input_image_process(img_path):
             for _, img_path_each in enumerate(img_name_list):
                 img_pair = {
                     "img_name": os.path.basename(img_path_each).split(".")[0],
-                    "img_content": input_process(img_path_each, image_size=256),
+                    "img_content": input_process(img_path + '/' + img_path_each, image_size=256),
                 }
                 img_list.append(img_pair)
 
